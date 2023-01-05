@@ -1,5 +1,5 @@
 
-import './App.css';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
@@ -8,6 +8,7 @@ function App() {
     <div>
       <Navbar title='textUtils' /><br/>
       <TextForm heading='Enter Text below to Analyse'/>
+      {/* <About/> */}
     </div>
   );
 }
