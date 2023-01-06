@@ -18,6 +18,10 @@ let Navbar = (props) => {
                     </li>
                 </ul>
             </div>
+            <div className="custom-control custom-switch">
+                <input type="checkbox" className="custom-control-input" id="customSwitch1" />
+                <label className="custom-control-label" htmlFor="customSwitch1">Toggle this switch element</label>
+            </div>
         </nav>
     )
 
