@@ -18,6 +18,17 @@ let Form = (props) => {
     setText("");
   }
 
+  const handleCopy = ()=> {
+    let text = document.getElementById("txtArea");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+ }
+
+  const handleExtraSpaces = () => {
+    let newValue = Text.split(/[ ]+/);
+    setText(newValue.join(" "));
+  }
+
   const handleChange = (event) => {
     setText(event.target.value);
   }
@@ -26,10 +37,14 @@ let Form = (props) => {
     <>
       <div className="container">
         <h2>{props.heading}</h2>
-        <textarea className="form-control my-2" placeholder="Enter Text Here..." value={Text} onChange={handleChange} id="exampleFormControlTextarea1" rows="9"></textarea>
+        <textarea className="form-control my-2" placeholder="Enter Text Here..." value={Text} onChange={handleChange} id="txtArea" rows="9"></textarea>
         <button className="btn btn-primary mx-1" onClick={handleUpClick} >UpperCase</button>
-        <button className="btn btn-success mx-1" onClick={handleLoClick} >LowerCase</button>
+        <button className="btn btn-primary mx-1" onClick={handleLoClick} >LowerCase</button>
         <button className="btn btn-danger mx-1" onClick={handleClear} >Clear</button>
+        <button className="btn btn-secondary mx-1" onClick={handleCopy} >Copy</button>
+        <button className="btn btn-secondary mx-1" onClick={handleExtraSpaces} >Remove Extra Spaces</button>
+
+
       </div>
       <div className="container my-2">
         <h2>Your Text Summary</h2>
