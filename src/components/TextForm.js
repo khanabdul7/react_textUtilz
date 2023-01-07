@@ -7,26 +7,35 @@ let Form = (props) => {
   const handleUpClick = () => {
     let newValue = Text.toUpperCase();
     setText(newValue);
+    props.showAlert("Converted to UpperCase", "success");
   }
 
   const handleLoClick = () => {
     let newValue = Text.toLowerCase();
     setText(newValue);
+    props.showAlert("Converted to LowerCase", "success");
+
   }
 
   const handleClear = () => {
     setText("");
+    props.showAlert("Text cleared", "success");
+
   }
 
   const handleCopy = ()=> {
     let text = document.getElementById("txtArea");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to clipboard", "success");
+
  }
 
   const handleExtraSpaces = () => {
     let newValue = Text.split(/[ ]+/);
     setText(newValue.join(" "));
+    props.showAlert("Extra spaces removed", "success");
+
   }
 
   const handleChange = (event) => {
