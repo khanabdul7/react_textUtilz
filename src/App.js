@@ -1,9 +1,13 @@
 
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, {useState} from 'react';
-import Alerts from './components/Alerts';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
  
@@ -35,12 +39,26 @@ function App() {
       }
   }
 
+  const router = createBrowserRouter([
+    {
+      path: "/home",
+      element: <Navbar title='textUtils' mode={mode} toggleMode={toggleMode} alert={alert}/>,
+      children: [
+        {
+          path: "",
+          element: <TextForm heading='Enter Text below to Analyse' mode={mode} showAlert={showAlert} />,
+        },
+        {
+          path: "about",
+          element: <About/>,
+        }
+      ]
+    },
+  ]);
+
   return (
-    <div>
-      <Navbar title='textUtils' mode={mode} toggleMode={toggleMode}/>
-      <Alerts alert={alert}/><br/>
-      <TextForm heading='Enter Text below to Analyse' mode={mode} showAlert={showAlert} />
-      {/* <About/> */}
+    <div>    
+      <RouterProvider router={router} />  
     </div>
   );
 }
