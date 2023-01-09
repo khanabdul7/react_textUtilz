@@ -41,7 +41,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/home",
+      path: "/",
       element: <Navbar title='textUtils' mode={mode} toggleMode={toggleMode} alert={alert}/>,
       children: [
         {
@@ -50,7 +50,7 @@ function App() {
         },
         {
           path: "about",
-          element: <About/>,
+          element: <About mode={mode}/>,
         }
       ]
     },
