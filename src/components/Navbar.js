@@ -12,7 +12,7 @@ let Navbar = (props) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
+                        <li className="nav-item">
                             <Link className="nav-link" to={``}>Home</Link>
                         </li>
                         <li className="nav-item">

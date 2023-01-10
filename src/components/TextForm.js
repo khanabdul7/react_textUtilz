@@ -24,10 +24,7 @@ let Form = (props) => {
   }
 
   const handleCopy = ()=> {
-    let text = document.getElementById("txtArea");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(Text);
     props.showAlert("Copied to clipboard", "success");
 
  }
@@ -58,7 +55,7 @@ let Form = (props) => {
       </div>
       <div className="container my-2" style={{color: props.mode==="light"?"black":"white"}}>
         <h2>Your Text Summary</h2>
-        <p>{Text.split(" ").filter((element)=>{return element.length!==0}).length} words and {Text.length} characters</p>
+        <p>{Text.split(/\s/).filter((element)=>{return element.length!==0}).length} words and {Text.length} characters</p>
         <p>{0.008 * Text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
         <h3>Preview</h3>
         <p>{Text.length>0?Text:"Enter Something above to see Preview here."}</p>
